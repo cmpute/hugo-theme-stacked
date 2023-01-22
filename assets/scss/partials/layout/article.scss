@@ -37,14 +37,9 @@
                 font-family: var(--base-font-family);
             }
 
-            img {
+            img, embed {
                 max-width: 100%;
                 height: auto;
-                display: block;
-                margin: 0 auto;
-            }
-
-            embed {
                 display: block;
                 margin: 0 auto;
             }
