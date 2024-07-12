@@ -12,9 +12,6 @@ import createElement from 'ts/createElement';
 import StackColorScheme from 'ts/colorScheme';
 import { setupScrollspy } from 'ts/scrollspy';
 import { setupSmoothAnchors } from "ts/smoothAnchors";
-import { setupTabSwitchers, setupTabToggles } from "ts/tabs";
-import { setupRightbarToggle, setupBottomNavbar } from "ts/navbar";
-import { setupPanelToggles } from "ts/panel";
 
 let Stack = {
     init: () => {
@@ -28,17 +25,6 @@ let Stack = {
             new StackGallery(articleContent);
             setupSmoothAnchors();
             setupScrollspy();
-
-            /**
-             * Register panel open toggles
-             */
-            setupPanelToggles();
-
-            /**
-             * Register click events for tabbed navigation buttons
-             */
-            setupTabSwitchers();
-            setupTabToggles();
         }
 
         /**
@@ -74,56 +60,37 @@ let Stack = {
 
 
         /**
-         * Add copy ability to language markers in the code block
+         * Add copy button to code block
         */
-        const codeblocks = document.querySelectorAll('.article-content div.codeblock');
-        codeblocks.forEach(block => {
-            const code = block.querySelector('code[data-lang]');
-            if (!code) return;
+        const highlights = document.querySelectorAll('.article-content div.highlight');
+        const copyText = `Copy`,
+            copiedText = `Copied!`;
 
-            const lang = block.querySelector('div.code-lang')
-            if (!lang) return;
+        highlights.forEach(highlight => {
+            const copyButton = document.createElement('button');
+            copyButton.innerHTML = copyText;
+            copyButton.classList.add('copyCodeButton');
+            highlight.appendChild(copyButton);
 
-            const animate = () => {
-                lang.textContent = `COPIED`;
+            const codeBlock = highlight.querySelector('code[data-lang]');
+            if (!codeBlock) return;
 
-                setTimeout(() => {
-                    lang.textContent = lang_text;
-                }, 2000);
-            };
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(codeBlock.textContent)
+                    .then(() => {
+                        copyButton.textContent = copiedText;
 
-            const lang_text = lang.textContent
-            lang.addEventListener('click', () => {
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(code.textContent)
-                        .then(animate)
-                        .catch(err => alert(err));
-                } else {
-                    console.log("Tried to copy " + code.textContent.length + " chars, this is a no-op.")
-                    // animate();
-                }
+                        setTimeout(() => {
+                            copyButton.textContent = copyText;
+                        }, 1000);
+                    })
+                    .catch(err => {
+                        alert(err)
+                        console.log('Something went wrong', err);
+                    });
             });
         });
 
-        /**
-         * Register click events for tabbed navigation buttons
-         */
-        setupTabSwitchers();
-        setupTabToggles();
-        
-        /**
-         * Register click event for the right sidebar toggle
-         */
-        setupRightbarToggle();
-
-        /**
-         * Register scroll handler for the bottom navbar
-         */
-        setupBottomNavbar();
-
-        /**
-         * Register theme switch
-         */
         new StackColorScheme(document.getElementById('dark-mode-toggle'));
     }
 }
