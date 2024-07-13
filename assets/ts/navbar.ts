@@ -27,6 +27,10 @@ function openRightSidebar() {
 }
 
 function setupRightbarToggle() {
+    const rightbarClose = document.getElementById(TOGGLE_CLOSE_ID);
+    if (!rightbarClose) {
+        return;
+    }
     document.getElementById(TOGGLE_CLOSE_ID).addEventListener("click", e => closeRightSidebar());
     document.getElementById(TOGGLE_OPEN_ID).addEventListener("click", e => openRightSidebar());
 }
