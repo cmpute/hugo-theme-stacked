@@ -38,16 +38,6 @@ notFound:
     subtitle:
         other: Запрашиваемая страница не существует
 
-widget:
-    archives:
-        title:
-            other: Архивы
-        more:
-            other: Ещё
-    tagCloud:
-        title:
-            other: Теги
-
 search:
     title:
         other: Поиск

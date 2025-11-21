@@ -40,22 +40,6 @@ notFound:
     subtitle:
         other: تعذر العثور على الصفحة المطلوبة.
 
-widget:
-    archives:
-        title:
-            other: الارشيفات
-
-        more:
-            other: اكثر
-
-    tagCloud:
-        title:
-            other: وسوم
-            
-    categoriesCloud:
-        title:
-            other: التصنيفات
-
 search:
     title:
         other: بحث

@@ -41,18 +41,6 @@ notFound:
     subtitle:
         other: Ця сторінка не існує
 
-widget:
-    archives:
-        title:
-            other: Архіви
-
-        more:
-            other: Більше
-
-    tagCloud:
-        title:
-            other: Теґи
-
 search:
     title:
         other: Пошук

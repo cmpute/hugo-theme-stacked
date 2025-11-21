@@ -79,6 +79,32 @@
 
     @include respond(lg) {
         padding-top: var(--main-top-padding);
+        padding-bottom: var(--main-top-padding);
+    }
+
+    // apply the font config for the sidebar title
+    code {
+        font-family: var(--code-font-family);
+    }
+}
+
+.right-sidebar--compact {
+    width: 32px;
+    display: none;
+    flex-direction: column;
+    gap: var(--widget-separation);
+
+    &.sticky {
+        top: 0;
+    }
+
+    @include respond(lg) {
+        padding-top: var(--main-top-padding);
+        padding-bottom: var(--main-top-padding);
+    }
+
+    h2 {
+        display: none;
     }
 }
 

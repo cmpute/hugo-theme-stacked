@@ -40,21 +40,6 @@ notFound:
     subtitle:
         other: این صحه وجود ندارد
 
-widget:
-    archives:
-        title:
-            other: آرشیو
-
-        more:
-            other: بیشتر
-
-    tagCloud:
-        title:
-            other: تگ ها
-    categoriesCloud:
-        title:
-            other: دسته بندی
-
 search:
     title:
         other: جستجو

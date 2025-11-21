@@ -39,19 +39,6 @@ notFound:
     subtitle:
         other: Esta página não existe.
 
-widget:
-    archives:
-        title:
-            other: Arquivos
-        more:
-            other: Mais
-    tagCloud:
-        title:
-            other: Tags
-    categoriesCloud:
-        title:
-            other: Categorias
-
 search:
     title:
         other: Busca

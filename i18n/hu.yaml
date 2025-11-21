@@ -40,21 +40,6 @@ notFound:
     subtitle:
         other: Ez az oldal nem létezik
 
-widget:
-    archives:
-        title:
-            other: Archívum
-
-        more:
-            other: Több
-
-    tagCloud:
-        title:
-            other: Cimkék
-    categoriesCloud:
-        title:
-            other: Kategóriák
-
 search:
     title:
         other: Keresés

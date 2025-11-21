@@ -28,20 +28,6 @@ notFound:
     subtitle:
         other: Deze pagina bestaat niet.
 
-widget:
-    archives:
-        title:
-            other: Archief
-        more:
-            other: Meer
-    tagCloud:
-        title:
-            other: Tags
-
-    categoriesCloud:
-        title:
-            other: Categorie
-
 search:
     title:
         other: Zoeken

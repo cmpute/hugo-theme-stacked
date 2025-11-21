@@ -31,8 +31,34 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb);
 }
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover);
+}
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
-/**/
+
+/* style of selection area */
+::selection {
+    color: var(--selection-text-color);
+    background: var(--selection-background-color);
+}
+
+// animations for opening and closing panels
+@keyframes panel-open {
+    0% { opacity: 0; border-top-left-radius: var(--panel-border-radius); border-top-right-radius: var(--panel-border-radius);  }
+    100% { opacity: 1; border-top-left-radius: 0; border-top-right-radius: 0; }
+}
+@keyframes panel-text-open {
+    0% { padding-top: 0 }
+    100% { padding-top: calc((var(--card-padding)) * 0.5) }
+}
+@keyframes panel-close {
+    0% { opacity: 1; border-top-left-radius: 0; border-top-right-radius: 0 }
+    100% { opacity: 0; border-top-left-radius: var(--panel-border-radius); border-top-right-radius: var(--panel-border-radius) }
+}
+@keyframes panel-text-close {
+    0% { padding-top: calc((var(--card-padding)) * 0.5) }
+    100% { padding-top: 0 }
+}

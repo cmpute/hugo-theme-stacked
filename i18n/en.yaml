@@ -23,6 +23,18 @@ article:
     tableOfContents:
         other: Table of contents
 
+    backToTop:
+        other: Back to Top
+
+    comments:
+        other: Comments
+
+    sidebarClose:
+        other: Collapse
+
+    sidebarOpen:
+        other: Expand
+
     relatedContent:
         other: Related content
 
@@ -40,21 +52,6 @@ notFound:
     subtitle:
         other: This page does not exist
 
-widget:
-    archives:
-        title:
-            other: Archives
-
-        more:
-            other: More
-
-    tagCloud:
-        title:
-            other: Tags
-    categoriesCloud:
-        title:
-            other: Categories
-
 search:
     title:
         other: Search
@@ -70,4 +67,11 @@ footer:
         other: Built with {{ .Generator }}
 
     designedBy:
-        other: Theme {{ .Theme }} designed by {{ .DesignedBy }}
+        other: Theme {{ .Theme }} designed by {{ .DesignedBy }}, modified by {{ .ModifiedBy }}
+
+rss:
+    readMore:
+        other: "Go to {{ .PageLink }} to read full text."
+
+    linkTitle:
+        other: "webpage"

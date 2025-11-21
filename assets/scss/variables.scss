@@ -19,11 +19,13 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --body-text-color: #bababa;
 
     --tag-border-radius: 4px;
+    --toc-max-height: 70vh;
 
     --section-separation: 40px;
 
     --scrollbar-thumb: hsl(0, 0%, 85%);
     --scrollbar-track: var(--body-background);
+    --scrollbar-hover: #afb39a;
 
     &[data-scheme="dark"] {
         --body-background: #303030;
@@ -44,7 +46,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 
     --base-font-family: "Lato", var(--sys-font-family), var(--zh-font-family), sans-serif;
-    --code-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    --code-font-family: Menlo, Monaco, Consolas, "Courier New", var(--zh-font-family), monospace;
 }
 
 /*
@@ -123,6 +125,14 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --table-border-color: #dadada;
     --tr-even-background-color: #efefee;
 
+    --selection-text-color: #f8f8f8;
+    --selection-background-color: #808080;
+
+    --panel-border-radius: var(--card-border-radius);
+    --panel-background-color: rgb(219, 219, 219);
+    --panel-titlebar-color: rgb(245, 245, 245);
+    --panel-hover-color: rgb(234, 234, 234);
+
     &[data-scheme="dark"] {
         --code-background-color: #272822;
         --code-text-color: rgba(255, 255, 255, 0.9);
@@ -131,6 +141,13 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --tr-even-background-color: #545454;
 
         --blockquote-background-color: rgb(75 75 75);
+        
+        --selection-text-color: #808080;
+        --selection-background-color: #e6e6e6;
+
+        --panel-background-color: rgb(73, 73, 73);
+        --panel-titlebar-color: rgb(114, 114, 114);
+        --panel-hover-color: rgb(92, 92, 92);
     }
 }
 
@@ -139,11 +156,19 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Thanks to https://www.figma.com/community/plugin/744987207861965946/Shadow-picker
 */
 :root {
-    --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
-    --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-    --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-    --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
-        0px 0px 1px rgba(0, 0, 0, 0.04);
+    --shadow-l1: 0px 4px 8px rgba(#000, 4%), 0px 0px 2px rgba(#000, 6%), 0px 0px 1px rgba(#000, 4%);
+    --shadow-l2: 0px 10px 20px rgba(#000, 4%), 0px 2px 6px rgba(#000, 4%), 0px 0px 1px rgba(#000, 4%);
+    --shadow-l3: 0px 10px 20px rgba(#000, 4%), 0px 2px 6px rgba(#000, 4%), 0px 0px 1px rgba(#000, 4%);
+    --shadow-l4: 0px 24px 32px rgba(#000, 4%), 0px 16px 24px rgba(#000, 4%), 0px 4px 8px rgba(#000, 4%),
+        0px 0px 1px rgba(#000, 4%);
+        
+    &[data-scheme="dark"] {    
+        --shadow-l1: 0px 4px 8px rgba(#fff, 4%), 0px 0px 2px rgba(#fff, 6%), 0px 0px 1px rgba(#fff, 4%);
+        --shadow-l2: 0px 10px 20px rgba(#fff, 4%), 0px 2px 6px rgba(#fff, 4%), 0px 0px 1px rgba(#fff, 4%);
+        --shadow-l3: 0px 10px 20px rgba(#fff, 4%), 0px 2px 6px rgba(#fff, 4%), 0px 0px 1px rgba(#fff, 4%);
+        --shadow-l4: 0px 24px 32px rgba(#fff, 4%), 0px 16px 24px rgba(#fff, 4%), 0px 4px 8px rgba(#fff, 4%),
+            0px 0px 1px rgba(#fff, 4%);
+    }
 }
 
 [data-scheme="light"] {
@@ -162,4 +187,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --menu-icon-separation: 40px;
     --container-padding: 15px;
     --widget-separation: var(--section-separation);
+    --navitem-separation: 20px;
 }
+
+@import "partials/maps/notice.scss";

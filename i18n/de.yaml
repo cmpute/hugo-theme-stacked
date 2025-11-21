@@ -40,22 +40,6 @@ notFound:
     subtitle:
         other: Diese Seite existiert nicht
 
-widget:
-    archives:
-        title:
-            other: Archiv
-
-        more:
-            other: Weitere
-
-    tagCloud:
-        title:
-            other: Schlagwörter
-
-    categoriesCloud:
-        title:
-            other: Kategorien
-
 search:
     title:
         other: Suche

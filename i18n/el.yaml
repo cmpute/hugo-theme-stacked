@@ -40,18 +40,6 @@ notFound:
     subtitle:
         other: Η σελίδα δε βρέθηκε.
 
-widget:
-    archives:
-        title:
-            other: Αρχειο
-
-        more:
-            other: Περισσότερα
-
-    tagCloud:
-        title:
-            other: Tags
-
 search:
     title:
         other: Αναζήτηση

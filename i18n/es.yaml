@@ -40,21 +40,6 @@ notFound:
     subtitle:
         other: Esta página no existe
 
-widget:
-    archives:
-        title:
-            other: Archivo
-
-        more:
-            other: Más
-
-    tagCloud:
-        title:
-            other: Etiquetas
-    categoriesCloud:
-        title:
-            other: Categorías
-
 search:
     title:
         other: Búsqueda

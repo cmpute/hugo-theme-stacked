@@ -40,18 +40,6 @@ notFound:
     subtitle:
         other: ไม่พบหน้านี้ในระบบ
 
-widget:
-    archives:
-        title:
-            other: เนื้อหาที่เก็บถาวรแล้ว
-
-        more:
-            other: อื่นๆ นอกจากนี้
-
-    tagCloud:
-        title:
-            other: แท็ก
-
 search:
     title:
         other: ค้นหา

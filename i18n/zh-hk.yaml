@@ -23,6 +23,18 @@ article:
     tableOfContents:
         other: 目錄
 
+    backToTop:
+        other: 頂部
+
+    comments:
+        other: 評論
+
+    sidebarClose:
+        other: 折叠
+
+    sidebarOpen:
+        other: 展开
+
     relatedContent:
         other: 相關內容
 
@@ -40,21 +52,6 @@ notFound:
     subtitle:
         other: 頁面不存在
 
-widget:
-    archives:
-        title:
-            other: Archives
-
-        more:
-            other: 更多
-
-    tagCloud:
-        title:
-            other: Tags
-    categoriesCloud:
-        title:
-            other: Categories
-
 search:
     title:
         other: 搜尋
@@ -70,4 +67,11 @@ footer:
         other: Built with {{ .Generator }}
 
     designedBy:
-        other: 主題 {{ .Theme }} 由 {{ .DesignedBy }} 設計
+        other: 主題 {{ .Theme }} 由 {{ .DesignedBy }} 設計，{{ .ModifiedBy }} 修改
+
+rss:
+    readMore:
+        other: "前往{{ .PageLink }}以閱讀全文。"
+
+    linkTitle:
+        other: "頁面"

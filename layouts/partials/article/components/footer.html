@@ -1,10 +1,17 @@
 <footer class="article-footer">
-    {{ partial "article/components/tags" . }}
+    {{ if .Params.Tags }}
+    <section class="article-tags">
+        {{ partial "helper/icon" "tag" }}
+        <span>
+            {{ range (.GetTerms "tags") }}<a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>{{ end }}
+        </span>
+    </section>
+    {{ end }}
 
     {{ if and (.Site.Params.article.license.enabled) (not (eq .Params.license false)) }}
     <section class="article-copyright">
         {{ partial "helper/icon" "copyright" }}
-        <span>{{ default .Site.Params.article.license.default .Params.license | markdownify }}</span>
+        <span>{{ default .Site.Params.article.license.default .Params.license | .Page.RenderString }}</span>
     </section>
     {{ end }}
 
