@@ -1,6 +1,6 @@
 {{- with .Site.Params.comments.giscus -}}
 
-{{- $style := resources.Get "scss/partials/comments/giscus.scss" | resources.ToCSS | minify -}}
+{{- $style := resources.Get "scss/partials/comments/giscus.scss" | css.Sass | minify -}}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 <div class="giscus-container" id="comments-container">
@@ -17,6 +17,7 @@
         data-input-position="{{- default `top` .inputPosition -}}"
         data-theme="{{- default `light` .lightTheme -}}"
         data-lang="{{- default `en` .lang -}}"
+        data-loading="{{- .loading -}}"
         crossorigin="anonymous"
         async
     ></script>
