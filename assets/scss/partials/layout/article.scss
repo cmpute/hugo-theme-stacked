@@ -112,10 +112,10 @@
                             list-style-type: none;
                             counter-reset: item;
                             padding-inline-start: var(--card-padding);
-                
+
                             li {
                                 margin: 15px 0px;
-    
+
                                 a:first-of-type::before {
                                     counter-increment: item;
                                     content: counters(item, ".") ". ";
@@ -185,7 +185,7 @@
                 text-transform: unset;
 
                 a {
-                    color: var(--card-text-color-tertiary); 
+                    color: var(--card-text-color-tertiary);
                     &:hover {
                         color: var(--accent-color);
                     }
@@ -366,7 +366,7 @@
             }
         }
     }
-    
+
     h1,
     h2 {
         border-inline-start: var(--heading-border-size) solid var(--accent-color);
@@ -488,7 +488,7 @@
 
         .code-lang {
             position: absolute;
-            top: calc(var(--card-padding) - 12px);
+            top: calc(var(--card-padding) - 24px);
             right: calc(var(--card-padding));
 
             color: var(--card-background);
@@ -504,7 +504,7 @@
 
         &:hover .code-lang{
             color: var(--accent-color-darker);
-            
+
             &:hover {
                 color: var(--accent-color)
             }
