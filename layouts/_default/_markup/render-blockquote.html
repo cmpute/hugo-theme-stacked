@@ -1,0 +1,47 @@
+{{- if eq .Type "alert" }}
+  {{- $alertType := strings.ToLower .AlertType }}
+
+  {{- /* Obsidian callout type mapping to theme styles */ -}}
+  {{- $typeMap := dict
+    "note" "note"
+    "abstract" "abstract"
+    "summary" "abstract"
+    "tldr" "abstract"
+    "info" "info"
+    "todo" "info"
+    "tip" "tip"
+    "hint" "tip"
+    "important" "tip"
+    "success" "success"
+    "check" "success"
+    "done" "success"
+    "question" "question"
+    "help" "question"
+    "faq" "question"
+    "warning" "warning"
+    "caution" "warning"
+    "attention" "warning"
+    "failure" "failure"
+    "fail" "failure"
+    "missing" "failure"
+    "danger" "failure"
+    "error" "failure"
+    "bug" "bug"
+    "example" "example"
+  }}
+
+  {{- $styleClass := index $typeMap $alertType | default "note" -}}
+  {{- $title := .AlertTitle | default (title $alertType) -}}
+  {{- $isOpen := eq .AlertSign "+" -}}
+
+  {{- partial "article/components/callout" (dict
+    "style" $styleClass
+    "title" $title
+    "content" .Text
+    "open" $isOpen
+  ) -}}
+{{- else -}}
+  <blockquote {{- with .Attributes.class }}class="{{ . }}"{{- end }}>
+    {{ .Text }}
+  </blockquote>
+{{- end -}}

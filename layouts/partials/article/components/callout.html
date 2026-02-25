@@ -1,0 +1,51 @@
+{{- /* Shared callout component for both notice shortcode and blockquote render hook */ -}}
+{{- /*
+  Parameters:
+    - style: The style class (note, tip, warning, etc., or "_unset" for no icon)
+    - title: The title text
+    - content: The content to display (template.HTML)
+    - open: Whether the callout should be open by default (optional, default true)
+    - icon: Custom icon name (optional, defaults to style-based icon)
+    - titleOnly: If true, renders a title-only callout (optional, default false)
+-*/ -}}
+
+{{- $style := .style | default "note" -}}
+{{- $title := .title -}}
+{{- $content := .content -}}
+{{- $open := .open | default true -}}
+{{- $icon := .icon -}}
+{{- $titleOnly := .titleOnly | default false -}}
+
+{{- /* Determine which icon to use */ -}}
+{{- $iconName := "" -}}
+{{- if $icon -}}
+  {{- $iconName = $icon -}}
+{{- else if (ne $style "_unset") -}}
+  {{- $iconName = (printf "notice/%s" $style) -}}
+{{- end -}}
+
+{{- if $titleOnly -}}
+<div class="article-callout {{ $style }}">
+    <div class="article-callout-title-only">
+        {{- with $iconName -}}
+            {{ partial "helper/icon" . }}
+        {{- end -}}
+        <span>{{ $title }}</span>
+    </div>
+</div>
+{{- else -}}
+<details class="article-callout {{ $style }}" {{ if $open }}open{{ end }}>
+    <summary class="article-callout-title">
+        {{- with $iconName -}}
+            {{ partial "helper/icon" . }}
+        {{- end -}}
+        <span>{{ $title }}</span>
+        {{ partial "helper/icon" "chevron-right" }}
+    </summary>
+    <div class="article-callout-body">
+        <section>
+            {{ $content }}
+        </section>
+    </div>
+</details>
+{{- end -}}
