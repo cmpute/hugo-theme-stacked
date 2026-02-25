@@ -3,14 +3,14 @@
 {{- $fold := default false (.Get "fold") -}}
 {{- $hasInner := gt (len (trim .Inner " \r\n")) 0 }}
 
-{{ $class := slice "article-notice" }}
+{{ $class := slice "article-callout" }}
 {{ if (ne $style "_unset") }}
     {{ $class = $class | append $style }}
 {{ end }}
 
 {{ if $hasInner }}
 <details class="{{ delimit $class ` ` }}" {{ if not $fold }}open{{ end }}>
-    <summary class="article-notice-title">
+    <summary class="article-callout-title">
         {{ with .Get "icon" }}
             {{ partial "helper/icon" . }}
         {{ else }}
@@ -21,7 +21,7 @@
         <span>{{ $title }}</span>
         {{ partial "helper/icon" "chevron-right" }}
     </summary>
-    <div class="article-notice-body">
+    <div class="article-callout-body">
         <section>
             {{ .Inner | .Page.RenderString }}
         </section>
@@ -29,7 +29,7 @@
 </details>
 {{ else }}
 <div class="{{ delimit $class ` ` }}">
-    <div class="article-notice-title-only">
+    <div class="article-callout-title-only">
         {{ with .Get "icon" }}
             {{ partial "helper/icon" . }}
         {{ else }}

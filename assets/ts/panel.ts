@@ -16,7 +16,7 @@ function setupPanelToggles() {
         });
     }
 
-    document.querySelectorAll("details.article-notice").forEach(notice => {
+    document.querySelectorAll("details.article-callout").forEach(notice => {
         // register closing animation of notice panels
         notice.querySelector("summary").addEventListener("click", function(e) {
             if (notice.hasAttribute("open")) {

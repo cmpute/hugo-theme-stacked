@@ -1,0 +1,51 @@
+{{- if eq .Type "alert" }}
+  {{- $alerts := dict
+    "caution" (dict "color" "red" "icon" "exclamation-triangle")
+    "important" (dict "color" "blue" "icon" "exclamation-circle")
+    "note" (dict "color" "blue" "icon" "information-circle")
+    "tip" (dict "color" "green" "icon" "light-bulb")
+    "warning" (dict "color" "orange" "icon" "exclamation-triangle")
+  }}
+
+  {{- $alertTypes := slice }}
+  {{- range $k, $_ := $alerts }}
+    {{- $alertTypes = $alertTypes | append $k }}
+  {{- end }}
+  {{- $alertTypes = $alertTypes | sort }}
+
+  {{- $alertType := strings.ToLower .AlertType }}
+  {{- if in $alertTypes $alertType }}
+    {{- partial "helper/alert.html" (dict
+      "color" (or ((index $alerts $alertType).color) "blue")
+      "icon" (or ((index $alerts $alertType).icon) "information-circle")
+      "text" .Text
+      "title" .AlertTitle
+      "class" .Attributes.class
+      )
+    }}
+  {{- else }}
+    {{- errorf `Invalid blockquote alert type. Received %s. Expected one of %s (case-insensitive). See %s.` .AlertType (delimit $alertTypes ", " ", or ") .Page.String }}
+  {{- end }}
+  <details class="{{ delimit $class ` ` }}" {{ if not $fold }}open{{ end }}>
+    <summary class="article-callout-title">
+        {{ with .Get "icon" }}
+            {{ partial "helper/icon" . }}
+        {{ else }}
+            {{ if (ne $style "_unset") }}
+                {{ partial "helper/icon" (printf "notice/%s" $style) }}
+            {{ end }}
+        {{ end }}
+        <span>{{ $title }}</span>
+        {{ partial "helper/icon" "chevron-right" }}
+    </summary>
+    <div class="article-callout-body">
+        <section>
+            {{ .Inner | .Page.RenderString }}
+        </section>
+    </div>
+</details>
+{{- else }}
+  <blockquote {{- with .Attributes.class }}class="{{ . }}"{{- end }}>
+    {{ .Text }}
+  </blockquote>
+{{- end }}

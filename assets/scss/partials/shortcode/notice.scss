@@ -1,9 +1,9 @@
-.article-notice {
+.article-callout {
     margin: var(--card-padding) calc((var(--card-padding)) * -0.5);
     display: flex;
     flex-direction: column;
 
-    .article-notice-title, .article-notice-title-only {
+    .article-callout-title, .article-callout-title-only {
         color: var(--body-text-color);
         margin: 0;
         background: var(--panel-titlebar-color);
@@ -34,7 +34,7 @@
         }
     }
 
-    .article-notice-title {
+    .article-callout-title {
         padding: 4px calc((var(--card-padding)) * 0.5);
         border-radius: var(--panel-border-radius) var(--panel-border-radius) 0 0;
         cursor: pointer;
@@ -44,21 +44,21 @@
         }
     }
 
-    .article-notice-title-only {
+    .article-callout-title-only {
         border-radius: var(--panel-border-radius);
         padding: calc((var(--card-padding)) * 0.5);
     }
 
     &:not([open]) {
-        .article-notice-title {
+        .article-callout-title {
             border-radius: var(--panel-border-radius);
         }
-        .article-notice-title > svg:last-child {
+        .article-callout-title > svg:last-child {
             transform: rotate(90deg);
         }
     }
 
-    .article-notice-body {
+    .article-callout-body {
         box-shadow: var(--shadow-l1);
         background-color: var(--panel-background-color);
 
@@ -73,13 +73,13 @@
         }
     }
 
-    &[open] .article-notice-body {
+    &[open] .article-callout-body {
         animation: panel-open .4s;
         section {
             animation: panel-text-open .4s;
         }
     }
-    &.closing .article-notice-body {
+    &.closing .article-callout-body {
         animation: panel-close .4s;
         section {
             animation: panel-text-close .4s;
@@ -88,14 +88,14 @@
     
     @each $type, $color, $background-color in $notice-color-map {
         &.#{$type} {
-            .article-notice-title, .article-notice-title-only {
+            .article-callout-title, .article-callout-title-only {
                 background-color: opacify($background-color, 0.3);
 
                 &:hover {
                     background-color: opacify($background-color, 0.15);
                 }
             }
-            .article-notice-body {
+            .article-callout-body {
                 background-color: opacify($background-color, 0.01);
             }
         }
@@ -103,8 +103,8 @@
 }
 
 // for code panels
-.article-notice.code-notice {
-    .article-notice-title div {
+.article-callout.code-callout {
+    .article-callout-title div {
         margin-right: 8px;
 
         &.code-lang {
@@ -148,14 +148,14 @@
         opacity: 1;
     }
 
-    .article-notice-body {
+    .article-callout-body {
         padding: calc(var(--card-padding)/2);
         background-color: var(--pre-background-color);
     }
     
     // when hide line number
     &.code-hide-lineno {
-        .article-notice-title div.panel-button[data-action=number] {
+        .article-callout-title div.panel-button[data-action=number] {
             color: var(--body-text-color);
         }
 
